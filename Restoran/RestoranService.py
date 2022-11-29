@@ -56,3 +56,5 @@ class RestoranService:
 
     def print_tables(self):
         self.restoran.print_tables()
+
+    def order_food(self):

@@ -41,3 +41,17 @@ class Restoran:
         for s in self.table_list:
             print(s)
 
+    def order_appetizer(self, id):
+        for f in self.food_list[0]:
+            if f.id_appetizer == id:
+                return f
+            else:
+                return None
+
+
+    def order_main_course(self, id):
+        for f in self.food_list[1]:
+            if f.id_appetizer == id:
+                return f
+            else:
+                return None

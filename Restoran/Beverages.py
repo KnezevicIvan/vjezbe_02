@@ -1,10 +1,10 @@
 from json import dumps
 
-class Pice:
-    def __init__(self, id, naziv, cijena):
+class Beverages:
+    def __init__(self, id, name, price):
         self.id = id
-        self.naziv = naziv
-        self.cijena = cijena
+        self.name = name
+        self.price = price
 
     def __repr__(self):
         return dumps(self.__dict__, indent=4)

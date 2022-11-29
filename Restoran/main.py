@@ -20,15 +20,16 @@ from Utils import Utils
 
 if __name__ == '__main__':
     service = RestoranService()
-    idPredjelo = 1
-    idGlavnoJelo = 1
-    idDesert = 1
-    idBezalkoholno = 1
-    idAlkoholno = 1
+    id_appetizer = 1
+    id_main_course = 1
+    id_dessert = 1
+    id_non_alcohol_drinks = 1
+    id_alcohol_drinks = 1
+    id_table = 1
 
     while True:
-        idPredjelo = service.dodajPredjelo(idPredjelo)
-        idGlavnoJelo = service.dodajGlavnoJelo(idGlavnoJelo)
-        idDesert = service.dodajDesert(idDesert)
+        id_appetizer = service.add_appetizer(id_appetizer)
+        id_main_course = service.add_main_course(id_main_course)
+        id_dessert = service.add_dessert(id_dessert)
 
-        service.ispisHrane()
+        service.print_food()

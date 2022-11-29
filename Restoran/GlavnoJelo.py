@@ -1,7 +1,7 @@
-from Hrana import Hrana
+from Food import Food
 
 
-class GlavnoJelo(Hrana):
+class GlavnoJelo(Food):
 
     def __int__(self, id, naziv, cijena):
         super(GlavnoJelo, self).__int__(id, naziv, cijena)

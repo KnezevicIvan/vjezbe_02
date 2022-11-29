@@ -1,8 +1,8 @@
 from Restoran import Restoran
 from Utils import Utils
-from Hrana import Hrana
-from Pice import Pice
-from Stol import Stol
+from Food import Food
+from Beverages import Beverages
+from Table import Table
 
 
 class RestoranService:
@@ -10,48 +10,49 @@ class RestoranService:
     def __init__(self):
         self.restoran = Restoran()
 
-    def dodajPredjelo(self, idPredjelo):
-        predjelo: Hrana = Hrana(Utils.dodajZnamenke(idPredjelo, 2), input("Naziv predjela:"), Utils.unesiCijeliBroj("Cijena: "))
-        self.restoran.dodajPredjelo(predjelo)
-        return idPredjelo + 1
+    def add_appetizer(self, id_appetizer):
+        appetizer: Food = Food(Utils.dodajZnamenke(id_appetizer, 2), input("Naziv predjela:"), Utils.unesiCijeliBroj("Cijena: "))
+        self.restoran.add_appetizer(appetizer)
+        return id_appetizer + 1
 
-    def dodajGlavnoJelo(self, idGlavnoJelo):
-        glavnoJelo: Hrana = Hrana(Utils.dodajZnamenke(idGlavnoJelo, 2), input("Naziv jela:"), Utils.unesiCijeliBroj("Cijena: "))
-        self.restoran.dodajGlavoJelo(glavnoJelo)
-        return idGlavnoJelo + 1
+    def add_main_course(self, id_main_course):
+        main_course: Food = Food(Utils.dodajZnamenke(id_main_course, 2), input("Naziv jela:"), Utils.unesiCijeliBroj("Cijena: "))
+        self.restoran.add_main_course(main_course)
+        return id_main_course + 1
 
-    def dodajDesert(self, idDesert):
-        desert: Hrana = Hrana(Utils.dodajZnamenke(idDesert, 2), input("Naziv deserta:"), Utils.unesiCijeliBroj("Cijena: "))
-        self.restoran.dodajDesert(desert)
-        return idDesert + 1
+    def add_dessert(self, id_dessert):
+        dessert: Food = Food(Utils.dodajZnamenke(id_dessert, 2), input("Naziv deserta:"), Utils.unesiCijeliBroj("Cijena: "))
+        self.restoran.add_dessert(dessert)
+        return id_dessert + 1
 
-    def dodajBezalkoholnoPice(self, idBezalkoholno):
-        bezalkoholno: Pice = Pice(Utils.dodajZnamenke(idBezalkoholno, 2), input("Naziv pica:"), Utils.unesiCijeliBroj("Cijena: "))
-        self.restoran.dodajBezalkoholnoPice(bezalkoholno)
-        return idBezalkoholno + 1
-
-    def ispisHrane(self):
+    def print_food(self):
         print("-------Predjelo-------")
-        self.restoran.ispisHrane(0)
+        self.restoran.print_food(0)
         print("-------Glavno jelo-------")
-        self.restoran.ispisHrane(1)
+        self.restoran.print_food(1)
         print("-------Desert-------")
-        self.restoran.ispisHrane(2)
+        self.restoran.print_food(2)
 
-    def dodajAlkoholnoPice(self, idAlkoholno):
-        alkoholno: Pice = Pice(Utils.dodajZnamenke(idAlkoholno, 2), input("Naziv pica:"), Utils.unesiCijeliBroj("Cijena: "))
-        self.restoran.dodajAlkoholnoPice(alkoholno)
-        return idAlkoholno + 1
+    def add_non_alcohol_drink(self, id_non_alcohol_drinks):
+        beverage: Beverages = Beverages(Utils.dodajZnamenke(id_non_alcohol_drinks, 2), input("Naziv pica:"), Utils.unesiCijeliBroj("Cijena: "))
+        self.restoran.add_non_alcohol_drink(beverage)
+        return id_non_alcohol_drinks + 1
 
-    def ispisPica(self):
+    def add_alcohol_drink(self, id_alcohol_drinks):
+        beverage: Beverages = Beverages(Utils.dodajZnamenke(id_alcohol_drinks, 2), input("Naziv pica:"), Utils.unesiCijeliBroj("Cijena: "))
+        self.restoran.add_alcohol_drink(beverage)
+        return id_alcohol_drinks + 1
+
+    def print_drinks(self):
         print("-------Bezalkoholna pica-------")
-        self.restoran.ispisPica(0)
+        self.restoran.print_drinks(0)
         print("-------Glavno jelo-------")
-        self.restoran.ispisPica(1)
+        self.restoran.print_drinks(1)
 
-    def dodajStol(self, idStol):
-        stol: Stol = Stol(Utils.dodajZnamenke(idStol, 2))
-        self.restoran.dodajStol(stol)
-        return idStol + 1
+    def add_table(self, id_table):
+        table: Table = Table(Utils.dodajZnamenke(id_table, 2))
+        self.restoran.add_table(table)
+        return id_table + 1
 
-    def ispisStolova(self):
+    def print_tables(self):
+        self.restoran.print_tables()

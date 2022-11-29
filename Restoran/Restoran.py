@@ -1,41 +1,41 @@
-from Hrana import Hrana
-from Pice import Pice
-from Stol import Stol
+from Food import Food
+from Beverages import Beverages
+from Table import Table
 
 class Restoran:
 
     def __init__(self):
-        self.listaHrane = [[], [], []]
-        self.listaPica = [[], []]
-        self.listaStolova = []
-        self.listaRacuna = []
+        self.food_list = [[], [], []]
+        self.drinks_list = [[], []]
+        self.table_list = []
+        self.receipt_list = []
 
-    def dodajPredjelo(self, predjelo: Hrana):
-        self.listaHrane[0].append(predjelo)
+    def add_appetizer(self, appetizer: Food):
+        self.food_list[0].append(appetizer)
 
-    def dodajGlavoJelo(self, glavnoJelo: Hrana):
-        self.listaHrane[1].append(glavnoJelo)
+    def add_main_course(self, main_course: Food):
+        self.food_list[1].append(main_course)
 
-    def dodajDesert(self, desert: Hrana):
-        self.listaHrane[2].append(desert)
+    def add_dessert(self, dessert: Food):
+        self.food_list[2].append(dessert)
 
-    def ispisHrane(self, n):            # 0 predjelo, 1 glavno jelo, 2 desert
-        for h in self.listaHrane[n]:
+    def print_food(self, n):            # 0 predjelo, 1 glavno jelo, 2 desert
+        for h in self.food_list[n]:
             print(h)
 
-    def dodajBezalkoholnoPice(self, bezalkoholno: Pice):
-        self.listaPica[0].append(bezalkoholno)
+    def add_non_alcohol_drink(self, beverage: Beverages):
+        self.drinks_list[0].append(beverage)
 
-    def dodajAlkoholnoPice(self, alkoholno: Pice):
-        self.listaPica[1].append(alkoholno)
+    def add_alcohol_drink(self, beverage: Beverages):
+        self.drinks_list[1].append(beverage)
 
-    def ispisPica(self, n):             # 0 bezalkoholno, 1 alkoholno
-        for p in self.listaPica[n]:
+    def print_drinks(self, n):             # 0 bezalkoholno, 1 alkoholno
+        for p in self.drinks_list[n]:
             print(p)
 
-    def dodajStol(self, stol: Stol):
-        self.listaStolova.append(stol)
+    def add_table(self, stol: Table):
+        self.table_list.append(stol)
 
-    def ispisStolova(self):
-        for s in self.listaStolova:
+    def print_tables(self):
+        for s in self.table_list:
             print(s)

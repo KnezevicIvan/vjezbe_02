@@ -1,4 +1,4 @@
-from Hrana import Hrana
+from Food import Food
 
 
 # class Predjelo(Hrana):

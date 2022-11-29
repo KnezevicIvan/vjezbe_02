@@ -16,7 +16,24 @@ osmisliti metodu za fiskalizaciju racuna (neki kod po želji, polu nasumican), r
 from RestoranService import RestoranService
 from Utils import Utils
 
+main_menu = {
+    0: " izlaz",
+    1: " --- Naruci hranu ---",
+    2: " --- Naruci pice ---",
+    3: " --- Stolovi ---",
+    4: " --- Administracija ---"
+}
 
+admin_menu = {
+    0: " -- Povratak --",
+    1: " -- Dodaj predjelo --",
+    2: " -- Dodaj glavno jelo --",
+    3: " -- Dodaj desert --",
+    4: " -- Dodaj bezalkoholno pice --",
+    5: " -- Dodaj alkoholno pice --",
+    6: " -- Dodaj stol --",
+    7: " -- Ispisi racune --"
+}
 
 if __name__ == '__main__':
     service = RestoranService()
@@ -33,3 +50,4 @@ if __name__ == '__main__':
         id_dessert = service.add_dessert(id_dessert)
 
         service.print_food()
+

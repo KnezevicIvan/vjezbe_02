@@ -2,6 +2,7 @@ from Food import Food
 from Beverages import Beverages
 from Table import Table
 
+
 class Restoran:
 
     def __init__(self):
@@ -39,3 +40,4 @@ class Restoran:
     def print_tables(self):
         for s in self.table_list:
             print(s)
+

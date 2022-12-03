@@ -7,7 +7,7 @@ class Restoran:
 
     def __init__(self):
         self.food_list = [[], [], []]
-        self.drinks_list = [[], []]
+        self.drinks_list = []
         self.table_list = []
         self.receipt_list = []
 
@@ -20,19 +20,51 @@ class Restoran:
     def add_dessert(self, dessert: Food):
         self.food_list[2].append(dessert)
 
-    def print_food(self, n):            # 0 predjelo, 1 glavno jelo, 2 desert
+    def print_food(self, n):  # 0 predjelo, 1 glavno jelo, 2 desert
         for h in self.food_list[n]:
             print(h)
 
-    def add_non_alcohol_drink(self, beverage: Beverages):
-        self.drinks_list[0].append(beverage)
+    def get_appetizer(self, input_id):
+        for f in self.food_list[0]:
+            print(self.food_list[0])
+            if f.id == input_id:
+                return f
+            else:
+                return None
 
-    def add_alcohol_drink(self, beverage: Beverages):
-        self.drinks_list[1].append(beverage)
+    def get_main_course(self, input_id):
+        for f in self.food_list[1]:
+            if f.id == input_id:
+                return f
+            else:
+                return None
 
-    def print_drinks(self, n):             # 0 bezalkoholno, 1 alkoholno
-        for p in self.drinks_list[n]:
+    def get_dessert(self, input_id):
+        for f in self.food_list[2]:
+            if f.id == input_id:
+                return f
+            else:
+                return None
+
+    def add_drinks(self, beverage: Beverages):
+        self.drinks_list.append(beverage)
+
+    def print_drinks(self):  # 0 bezalkoholno, 1 alkoholno
+        for p in self.drinks_list:
             print(p)
+
+    def print_drinks_category(self, n):
+        """parameter: 0 non alcohol, 1 alcohol"""
+        for d in self.drinks_list:
+            if d.alsohol == n:
+                print(d)
+
+    def get_drink(self, input_id):
+        for d in self.drinks_list:
+            if d.id == input_id:
+                return d
+            else:
+                return None
 
     def add_table(self, stol: Table):
         self.table_list.append(stol)
@@ -41,17 +73,15 @@ class Restoran:
         for s in self.table_list:
             print(s)
 
-    def order_appetizer(self, id):
-        for f in self.food_list[0]:
-            if f.id_appetizer == id:
-                return f
-            else:
-                return None
+    def get_table_reserved(self, input_id):
+        for t in self.table_list:
+            if t.reservation == None and t.id == input_id:
+                t.reservation = input(" Upisi ime rezervacije: ")
 
 
-    def order_main_course(self, id):
-        for f in self.food_list[1]:
-            if f.id_appetizer == id:
-                return f
+    def get_table(self, input_id):
+        for t in self.table_list:
+            if t.id == input_id:
+                return t
             else:
                 return None

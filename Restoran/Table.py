@@ -2,7 +2,7 @@ from json import dumps
 
 class Table:
 
-    def __init__(self, id, reservation = False):
+    def __init__(self, id, reservation = None):
         self.id = id
         self.reservation = reservation
 

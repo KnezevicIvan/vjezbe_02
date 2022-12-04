@@ -18,9 +18,9 @@ from Utils import Utils
 
 main_menu = {
     0: " izlaz",
-    1: " --- Naruci hranu ---",
-    2: " --- Naruci pice ---",
-    3: " --- Stolovi ---",
+    1: " --- Napravi narudzbu ---",
+    2: " --- Rezerviraj stol ---",
+    3: " --- Otkazi rezervaciju stola ---",
     4: " --- Administracija ---"
 }
 
@@ -30,35 +30,38 @@ admin_menu = {
     2: " -- Dodaj glavno jelo --",
     3: " -- Dodaj desert --",
     4: " -- Dodaj pice --",
-    5: " -- pass --",
-    6: " -- Dodaj stol --",
+    5: " -- Dodaj stol --",
+    6: " -- Ispisi meni --",
     7: " -- Ispisi racune --"
 }
 
 if __name__ == '__main__':
     service = RestoranService()
+    #service.load_files()
     id_appetizer = len(service.restoran.food_list[0]) + 1
     id_main_course = len(service.restoran.food_list[1]) + 1
     id_dessert = len(service.restoran.food_list[2]) + 1
     id_drinks = len(service.restoran.drinks_list) + 1
     id_table = len(service.restoran.table_list) + 1
+    id_receipt = len(service.restoran.receipt_list) + 1
 
     while True:
         Utils.ispisiIzbornik(main_menu)
-        user_input = input("Odaberi opciju: ")
+        user_input = input(" --- Odaberi opciju: ")
         if user_input == "0":
-            print("Izlazim iz programa.")
+            print(" # # #  Izlazim iz programa.  # # # ")
+            service.save_files()
             break
-        elif user_input == "1":           # order food
-            service.order_food()
-        elif user_input == "2":           # order drinks
-            pass
-        elif user_input == "3":           # tables
+        elif user_input == "1":           # make order
+            id_receipt = service.make_order(id_receipt)
+        elif user_input == "2":           # make table reservation
+            service.make_table_reservation()
+        elif user_input == "3":           # cancel table reservation
             pass
         elif user_input == "4":           # administration
             while True:
                 Utils.ispisiIzbornik(admin_menu)
-                user_input_2 = input("Odaberi opciju: ")
+                user_input_2 = input(" -- Odaberi opciju: ")
                 if user_input_2 == "0":
                     break
                 elif user_input_2 == "1":     # add appetizer
@@ -75,7 +78,6 @@ if __name__ == '__main__':
                     service.print_food()
                     service.print_drinks()
                 elif user_input_2 == "7":     # print receipts
-                    pass
+                    service.print_receipts()
         else:
-            print("Krivi unos!")
-
+            print(" # # # Krivi unos! # # # ")
